@@ -1,5 +1,14 @@
 # global-ledger-consistency-lab
 
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=psteixeira23_global-ledger-consistency-lab&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=psteixeira23_global-ledger-consistency-lab)
+[![Bugs](https://sonarcloud.io/api/project_badges/measure?project=psteixeira23_global-ledger-consistency-lab&metric=bugs)](https://sonarcloud.io/summary/new_code?id=psteixeira23_global-ledger-consistency-lab)
+[![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=psteixeira23_global-ledger-consistency-lab&metric=code_smells)](https://sonarcloud.io/summary/new_code?id=psteixeira23_global-ledger-consistency-lab)
+[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=psteixeira23_global-ledger-consistency-lab&metric=coverage)](https://sonarcloud.io/summary/new_code?id=psteixeira23_global-ledger-consistency-lab)
+[![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=psteixeira23_global-ledger-consistency-lab&metric=reliability_rating)](https://sonarcloud.io/summary/new_code?id=psteixeira23_global-ledger-consistency-lab)
+[![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=psteixeira23_global-ledger-consistency-lab&metric=security_rating)](https://sonarcloud.io/summary/new_code?id=psteixeira23_global-ledger-consistency-lab)
+[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=psteixeira23_global-ledger-consistency-lab&metric=sqale_rating)](https://sonarcloud.io/summary/new_code?id=psteixeira23_global-ledger-consistency-lab)
+[![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=psteixeira23_global-ledger-consistency-lab&metric=vulnerabilities)](https://sonarcloud.io/summary/new_code?id=psteixeira23_global-ledger-consistency-lab)
+
 Comparative engineering lab for distributed financial ledger consistency.
 
 This repository compares strong, hybrid, and eventual consistency under controlled load, deterministic failures, and financial invariants.
@@ -278,6 +287,21 @@ curl -s http://localhost:8000/metrics
 curl -s http://localhost:8001/metrics
 ```
 
+## SonarCloud
+- Workflow: `.github/workflows/sonar.yml`
+- Project config: `sonar-project.properties`
+- Required GitHub Actions secrets:
+  - `SONAR_TOKEN`
+  - `SONAR_HOST_URL` (`https://sonarcloud.io`)
+
+What the workflow does:
+- Installs dependencies with Poetry for `shared`, `payments-api`, and `ledger-worker`
+- Runs service tests with XML coverage reports
+- Executes SonarCloud scan on `push` and `pull_request` for `main`
+
+Manual GitHub step still required:
+- In branch protection rules for `main`, require the SonarCloud status check before merge.
+
 ## Environment variables
 - `CONSISTENCY_MODE=strong|hybrid|eventual`
 - `EXPERIMENT_SEED=42`
@@ -293,3 +317,6 @@ curl -s http://localhost:8001/metrics
 - Automated tests use shared contract enums/message catalog to avoid drift between code and assertions.
 - Benchmark conclusions should be taken from PostgreSQL runs, not SQLite fallback.
 - The project is intentionally explicit and didactic rather than framework-heavy.
+
+## License
+MIT. See `LICENSE`.

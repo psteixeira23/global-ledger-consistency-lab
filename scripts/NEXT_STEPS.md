@@ -26,3 +26,7 @@
 
 8) Prometheus
 - http://localhost:9090
+
+9) SonarCloud
+- push to `main` or open a PR to trigger `.github/workflows/sonar.yml`
+- ensure branch protection requires SonarCloud status check

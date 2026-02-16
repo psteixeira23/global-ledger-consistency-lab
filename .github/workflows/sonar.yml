@@ -1,0 +1,56 @@
+name: SonarCloud
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+permissions:
+  contents: read
+  pull-requests: read
+
+jobs:
+  sonar:
+    name: SonarCloud Analysis
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Python 3.13
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+
+      - name: Install Poetry
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install poetry
+
+      - name: Install dependencies
+        run: |
+          cd shared
+          poetry install --no-interaction --no-ansi
+          cd ../services/payments-api
+          poetry install --no-interaction --no-ansi
+          cd ../ledger-worker
+          poetry install --no-interaction --no-ansi
+
+      - name: Run tests with coverage (XML)
+        run: |
+          cd services/payments-api
+          poetry run pytest -q --cov=payments_api --cov-report=xml:coverage.xml --cov-fail-under=89
+          cd ../ledger-worker
+          poetry run pytest -q --cov=ledger_worker --cov-report=xml:coverage.xml --cov-fail-under=89
+
+      - name: SonarCloud Scan
+        uses: SonarSource/sonarqube-scan-action@v6
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
+
