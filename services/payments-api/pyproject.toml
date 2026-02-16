@@ -1,0 +1,50 @@
+[tool.poetry]
+name = "payments-api"
+version = "0.1.0"
+description = "Sync API for payments and outbox writes"
+authors = ["Patrick <you@example.com>"]
+packages = [{ include = "payments_api" }]
+
+[tool.poetry.dependencies]
+python = "^3.13"
+fastapi = "^0.115.0"
+uvicorn = { version = "^0.40.0", extras = ["standard"] }
+pydantic = "^2.10.0"
+sqlalchemy = { version = "^2.0.0", extras = ["asyncio"] }
+asyncpg = "^0.30.0"
+psycopg = { version = "^3.2.0", extras = ["binary"] }
+alembic = "^1.14.0"
+
+opentelemetry-api = "^1.29.0"
+opentelemetry-sdk = "^1.29.0"
+opentelemetry-exporter-otlp = "^1.29.0"
+opentelemetry-instrumentation-fastapi = "^0.50b0"
+
+prometheus-client = "^0.22.0"
+
+shared = { path = "../../shared", develop = true }
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.3.0"
+pytest-cov = "^6.0.0"
+httpx = "^0.28.0"
+ruff = "^0.15.0"
+mypy = "^1.19.0"
+pre-commit = "^4.5.0"
+ledger-worker = { path = "../ledger-worker", develop = true }
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.ruff]
+line-length = 100
+target-version = "py313"
+
+[tool.mypy]
+python_version = "3.13"
+strict = true
+
+[tool.pytest.ini_options]
+addopts = "-q"
+testpaths = ["tests"]

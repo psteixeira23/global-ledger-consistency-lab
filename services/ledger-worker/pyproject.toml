@@ -1,0 +1,41 @@
+[tool.poetry]
+name = "ledger-worker"
+version = "0.1.0"
+description = "Async worker consuming outbox and applying ledger entries"
+authors = ["Patrick <you@example.com>"]
+packages = [{ include = "ledger_worker" }]
+
+[tool.poetry.dependencies]
+python = "^3.13"
+sqlalchemy = { version = "^2.0.0", extras = ["asyncio"] }
+asyncpg = "^0.30.0"
+psycopg = { version = "^3.2.0", extras = ["binary"] }
+
+opentelemetry-api = "^1.29.0"
+opentelemetry-sdk = "^1.29.0"
+opentelemetry-exporter-otlp = "^1.29.0"
+prometheus-client = "^0.22.0"
+
+shared = { path = "../../shared", develop = true }
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.3.0"
+pytest-cov = "^6.0.0"
+ruff = "^0.15.0"
+mypy = "^1.19.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.ruff]
+line-length = 100
+target-version = "py313"
+
+[tool.mypy]
+python_version = "3.13"
+strict = true
+
+[tool.pytest.ini_options]
+addopts = "-q"
+testpaths = ["tests"]

@@ -1,0 +1,29 @@
+[tool.poetry]
+name = "shared"
+version = "0.1.0"
+description = "Shared contracts and utilities for global-ledger-consistency-lab"
+authors = ["Patrick <you@example.com>"]
+readme = "README.md"
+packages = [{ include = "shared", from = "src" }]
+include = ["src/shared/py.typed"]
+
+[tool.poetry.dependencies]
+python = "^3.13"
+pydantic = "^2.10.0"
+sqlalchemy = "^2.0.0"
+
+[tool.poetry.group.dev.dependencies]
+ruff = "^0.15.0"
+mypy = "^1.19.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.ruff]
+line-length = 100
+target-version = "py313"
+
+[tool.mypy]
+python_version = "3.13"
+strict = true
