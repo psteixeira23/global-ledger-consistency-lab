@@ -1,13 +1,13 @@
 # global-ledger-consistency-lab
 
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=psteixeira23_global-ledger-consistency-lab&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=psteixeira23_global-ledger-consistency-lab)
-[![Bugs](https://sonarcloud.io/api/project_badges/measure?project=psteixeira23_global-ledger-consistency-lab&metric=bugs)](https://sonarcloud.io/summary/new_code?id=psteixeira23_global-ledger-consistency-lab)
-[![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=psteixeira23_global-ledger-consistency-lab&metric=code_smells)](https://sonarcloud.io/summary/new_code?id=psteixeira23_global-ledger-consistency-lab)
 [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=psteixeira23_global-ledger-consistency-lab&metric=coverage)](https://sonarcloud.io/summary/new_code?id=psteixeira23_global-ledger-consistency-lab)
 [![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=psteixeira23_global-ledger-consistency-lab&metric=reliability_rating)](https://sonarcloud.io/summary/new_code?id=psteixeira23_global-ledger-consistency-lab)
 [![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=psteixeira23_global-ledger-consistency-lab&metric=security_rating)](https://sonarcloud.io/summary/new_code?id=psteixeira23_global-ledger-consistency-lab)
 [![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=psteixeira23_global-ledger-consistency-lab&metric=sqale_rating)](https://sonarcloud.io/summary/new_code?id=psteixeira23_global-ledger-consistency-lab)
+[![Bugs](https://sonarcloud.io/api/project_badges/measure?project=psteixeira23_global-ledger-consistency-lab&metric=bugs)](https://sonarcloud.io/summary/new_code?id=psteixeira23_global-ledger-consistency-lab)
 [![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=psteixeira23_global-ledger-consistency-lab&metric=vulnerabilities)](https://sonarcloud.io/summary/new_code?id=psteixeira23_global-ledger-consistency-lab)
+[![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=psteixeira23_global-ledger-consistency-lab&metric=code_smells)](https://sonarcloud.io/summary/new_code?id=psteixeira23_global-ledger-consistency-lab)
 
 Comparative engineering lab for distributed financial ledger consistency.
 
